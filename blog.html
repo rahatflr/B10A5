@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <header class=" z-10 w-full fixed top-0 left-0 bg-orange-50 shadow-sm">
+        <!-- Nav Section -->
+        <div class="navbar container mx-auto px-4 py-8">
+
+            <div class="navbar-start">
+                <a href="index.html">
+
+                    <button
+                        class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl rounded-xl bg-lime-300">Home</button>
+                </a>
+                <!-- btn -->
+
+            </div>
+
+
+            <div class="navbar-center flex gap-5 justify-center items-center">
+
+                <img src="assets/logo.png" alt="">
+                <h1 class="font-bold text-xl hidden md:block">Donate Bangladesh</h1>
+
+            </div>
+
+
+
+            <div class="navbar-end flex gap-2">
+                <!-- money -->
+                <img src="assets/coin.png" alt="">
+                <p id="main-balance" class="font-medium text-xl">10000</p>
+                <span class="font-semibold text-xl">BDT</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- accordian Section -->
+    <section class="container mx-auto mt-40 mb-10 px-5">
+        <div class="collapse collapse-arrow bg-base-100 border border-base-300 my-10">
+            <input type="radio" name="my-accordion-2" checked="checked" />
+            <div class="collapse-title font-semibold">How do I create an account?</div>
+            <div class="collapse-content text-sm">Click the "Sign Up" button in the top right corner and follow the
+                registration process.</div>
+        </div>
+        <div class="collapse collapse-arrow bg-base-100 border border-base-300 my-10">
+            <input type="radio" name="my-accordion-2" />
+            <div class="collapse-title font-semibold">I forgot my password. What should I do?</div>
+            <div class="collapse-content text-sm">Click on "Forgot Password" on the login page and follow the
+                instructions sent to your email.</div>
+        </div>
+        <div class="collapse collapse-arrow bg-base-100 border border-base-300 my-10">
+            <input type="radio" name="my-accordion-2" />
+            <div class="collapse-title font-semibold">How do I update my profile information?</div>
+            <div class="collapse-content text-sm">Go to "My Account" settings and select "Edit Profile" to make changes.
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    <!-- Modal Design -->
+
+    <!-- Open the modal using ID.showModal() method -->
+
+    <!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
+
+    <dialog id="my_modal_1" class="modal">
+        <div class="modal-box flex flex-col justify-center items-center text-center">
+            <h3 class="text-4xl font-bold">congrats!</h3>
+            <div class="py-5">
+
+                <img src="assets/coin.png" alt="">
+            </div>
+            <p class="py-4">You Have Donated for Humankind</p>
+            <h3 class="text-xl font-semibold">successfully</h3>
+
+            <div class="modal-action">
+                <form method="dialog">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn">Close Confirmation</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="js/index.js"></script>
+</body>
+
+</html>

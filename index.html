@@ -16,7 +16,10 @@
 
             <div class="navbar-start">
                 <!-- btn -->
-                <button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl rounded-xl bg-lime-300">Blog</button>
+                 <a href="blog.html">
+                     <button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl rounded-xl bg-lime-300">Blog</button>
+                 </a>
+               
             </div>
 
 
@@ -32,7 +35,7 @@
             <div class="navbar-end flex gap-2">
                 <!-- money -->
                 <img src="assets/coin.png" alt="">
-                <p class="font-medium text-xl">5000</p>
+                <p id="main-balance" class="font-medium text-xl">10000</p>
                 <span class="font-semibold text-xl">BDT</span>
             </div>
         </div>
@@ -50,28 +53,28 @@
     <section class="px-4">
 
 
-
+        <!-- Noakhali Flood Victims -->
         <div
             class=" container mx-auto border-2 border-solid rounded-xl border-slate-400 mt-10  mb-10 p-10 flex flex-col md:flex-row justify-center gap-4">
 
-            <!-- 1st -->
+            <!-- image Part Left Side -->
             <div class="md:w-1/2 flex justify-center items-center">
                 <img src="assets/noakhali.png" alt="">
 
             </div>
 
-            <!-- 2nd -->
+            <!-- Coin Part -->
             <div class="md:w-1/2 flex flex-col justify-center gap-4">
                 <div class="bg-white">
                     <div class="badge bg-orange-100 p-6">
                         <img src="assets/coin.png" alt="">
-                        <p>100</p>
+                        <p id="noakhali-ammount">100</p>
                         <span>BDT</span>
                     </div>
 
                 </div>
 
-                <!-- title -->
+                <!-- News Part -->
                 <div>
                     <h2 class="font-bold text-md md:text-xl pb-3">Noakhali Flood Victims</h2>
                     <p class="text-sm text-gray-600 pb-3"> The recent floods in Noakhali have caused significant damage
@@ -81,98 +84,107 @@
                         supporting the relief efforts and making a positive impact on the lives of those in need.</p>
                 </div>
 
-                <input id="noakhali-input" type="text" placeholder="Write Donation Amount" class="input w-full" />
-                <br>
-                <button  id="noakhali-donate" class="btn bg-lime-300" onclick="my_modal_1.showModal()">Donate Now</button>
+                <!-- Input Field -->
+
+                <input id="noakhali-input" type="number" placeholder="Write Donation Amount" class="input w-full" />
+                <p id="invalid-input" class="text-red-500 hidden">Invalid Input</p>
+
+                <!-- <button id="noakhali-donate" class="btn bg-lime-300" onclick="my_modal_1.showModal()">Donate Now</button> -->
+                <button id="noakhali-donate" class="btn bg-lime-300">Donate Now</button>
+                    
             </div>
         </div>
 
-        <!-- 2nd div -->
-        <div
-            class=" container mx-auto border-2 border-solid rounded-xl border-slate-400 mt-10 mb-10 p-10 flex flex-col md:flex-row justify-center gap-4">
 
-            <!-- 1st -->
+
+
+
+
+
+
+
+        <!-- Donate for Flood Relief in Feni,Bangladesh-->
+        <div
+            class=" container mx-auto border-2 border-solid rounded-xl border-slate-400 mt-10  mb-10 p-10 flex flex-col md:flex-row justify-center gap-4">
+
+            <!-- image Part Left Side -->
             <div class="md:w-1/2 flex justify-center items-center">
                 <img src="assets/feni.png" alt="">
 
             </div>
 
-            <!-- 2nd -->
+            <!-- Coin Part -->
             <div class="md:w-1/2 flex flex-col justify-center gap-4">
                 <div class="bg-white">
                     <div class="badge bg-orange-100 p-6">
                         <img src="assets/coin.png" alt="">
-                        <p>100</p>
+                        <p id="feni-ammount">100</p>
                         <span>BDT</span>
                     </div>
 
                 </div>
 
-                <!-- title -->
+                <!-- News Part -->
                 <div>
                     <h2 class="font-bold text-md md:text-xl pb-3">Donate for Flood Relief in Feni,Bangladesh</h2>
-                    <p class="text-sm text-gray-600 pb-3">The recent floods in Feni have devastated local communities,
-                        leading to severe disruption and loss. Your generous donation will help provide immediate aid,
-                        including food, clean water, and medical supplies, to those affected by this calamity. Together,
-                        we can offer crucial support and help rebuild lives in the aftermath of this disaster. Every
-                        contribution counts towards making a real difference. Please consider donating today to assist
-                        those in urgent need.</p>
+                    <p class="text-sm text-gray-600 pb-3">The recent floods in Feni have devastated local communities, leading to severe disruption and loss. Your generous donation will help provide immediate aid, including food, clean water, and medical supplies, to those affected by this calamity. Together, we can offer crucial support and help rebuild lives in the aftermath of this disaster. Every contribution counts towards making a real difference. Please consider donating today to assist those in urgent need.</p>
                 </div>
 
-                <input type="text" placeholder="Write Donation Amount" class="input w-full" />
-                <br>
-                <button class="btn bg-lime-300">Donate Now</button>
+                <!-- Input Field -->
+
+                <input id="feni-input" type="number" placeholder="Write Donation Amount" class="input w-full" />
+                <p id="invalid-input" class="text-red-500 hidden">Invalid Input</p>
+
+                <!-- <button id="noakhali-donate" class="btn bg-lime-300" onclick="my_modal_1.showModal()">Donate Now</button> -->
+                <button id="feni-donate" class="btn bg-lime-300">Donate Now</button>
+                    
             </div>
         </div>
-
-
-        <!-- 3rd Dive -->
-
+        <!-- Aid for Injured in the Quota Movement -->
         <div
-            class=" container mx-auto border-2 border-solid rounded-xl border-slate-400 mt-10 mb-10 p-10 flex flex-col md:flex-row justify-center gap-4">
+            class=" container mx-auto border-2 border-solid rounded-xl border-slate-400 mt-10  mb-10 p-10 flex flex-col md:flex-row justify-center gap-4">
 
-            <!-- 1st -->
+            <!-- image Part Left Side -->
             <div class="md:w-1/2 flex justify-center items-center">
-                <img src="assets/noakhali.png" alt="">
+                <img src="assets/quota-protest.png" alt="">
 
             </div>
 
-            <!-- 2nd -->
+            <!-- Coin Part -->
             <div class="md:w-1/2 flex flex-col justify-center gap-4">
                 <div class="bg-white">
                     <div class="badge bg-orange-100 p-6">
                         <img src="assets/coin.png" alt="">
-                        <p>100</p>
+                        <p id="quota-ammount">100</p>
                         <span>BDT</span>
                     </div>
 
                 </div>
 
-                <!-- title -->
+                <!-- News Part -->
                 <div>
                     <h2 class="font-bold text-md md:text-xl pb-3">Aid for Injured in the Quota Movement</h2>
-                    <p class="text-sm text-gray-600 pb-3">The recent Quota movement has resulted in numerous injuries
-                        and significant hardship for many individuals. Your support is crucial in providing medical
-                        assistance, rehabilitation, and necessary supplies to those affected. By contributing, you help
-                        ensure that injured individuals receive the care and support they need during this challenging
-                        time. Every donation plays a vital role in alleviating their suffering and aiding in their
-                        recovery. Please consider making a donation to support these brave individuals in their time of
-                        need.</p>
+                    <p class="text-sm text-gray-600 pb-3">The recent Quota movement has resulted in numerous injuries and significant hardship for many individuals. Your support is crucial in providing medical assistance, rehabilitation, and necessary supplies to those affected. By contributing, you help ensure that injured individuals receive the care and support they need during this challenging time. Every donation plays a vital role in alleviating their suffering and aiding in their recovery. Please consider making a donation to support these brave individuals in their time of need.</p>
                 </div>
 
-                <input type="text" placeholder="Write Donation Amount" class="input w-full" />
-                <br>
-                <!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
-                <button class="btn bg-lime-300" onclick="my_modal_1.showModal()">Donate Now</button>
-            </div>
+                <!-- Input Field -->
 
+                <input id="quota-input" type="number" placeholder="Write Donation Amount" class="input w-full" />
+                <p id="invalid-input" class="text-red-500 hidden">Invalid Input</p>
+
+                <!-- <button id="noakhali-donate" class="btn bg-lime-300" onclick="my_modal_1.showModal()">Donate Now</button> -->
+                <button id="quota-donate" class="btn bg-lime-300">Donate Now</button>
+                    
+            </div>
         </div>
+
+
 
     </section>
 
     <!-- History Section -->
 
-    <section class="px-5">
+    <section class="px-5 hidden" id="history-section">
         <div class="container mx-auto">
             <div class=" p-6 border-2 border-solid rounded-xl border-slate-400 mb-4">
                 <h3 class="font-bold">96500 Taka is Donated for famine-2024 at Feni, Bangladesh</h3>
