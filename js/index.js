@@ -39,23 +39,6 @@ function handleDonation(inputFieldId, displayAmountId, errorId, locationName) {
 }
 
 
-// Feni Donation Section
-document.getElementById('feni-donate').addEventListener('click', function () {
-    handleDonation('feni-input', 'feni-ammount', 'feni-invalid-input', 'Feni');
-});
-
-// Quota Donation Section
-document.getElementById('quota-donate').addEventListener('click', function () {
-    handleDonation('quota-input', 'quota-ammount', 'quota-invalid-input', 'Quota Protest');
-});
-
-// Example: Adding Noakhali is now this simple
-document.getElementById('noakhali-donate').addEventListener('click', function () {
-    handleDonation('noakhali-input', 'noakhali-ammount', 'noakhali-invalid-input', 'Noakhali');
-});
-
-
-
 // Function to add a history item
 function addHistoryItem(location, amount) {
     const historyItemsDiv = document.getElementById('history-items-div');
@@ -73,6 +56,22 @@ function addHistoryItem(location, amount) {
     // Prepend puts the newest donation at the top
     historyItemsDiv.prepend(newHistoryItem);
 }
+
+
+//  Noakhali Donation Section
+document.getElementById('noakhali-donate').addEventListener('click', function () {
+    handleDonation('noakhali-input', 'noakhali-ammount', 'noakhali-invalid-input', 'Noakhali');
+});
+
+// Feni Donation Section
+document.getElementById('feni-donate').addEventListener('click', function () {
+    handleDonation('feni-input', 'feni-ammount', 'feni-invalid-input', 'Feni');
+});
+
+// Quota Donation Section
+document.getElementById('quota-donate').addEventListener('click', function () {
+    handleDonation('quota-input', 'quota-ammount', 'quota-invalid-input', 'Quota Protest');
+});
 
 
 
