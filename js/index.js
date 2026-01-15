@@ -1,119 +1,82 @@
-// Noakhali Donation Section
+// DRY Applied Donation Function
 
-const noakhaloDonateBtn = document.getElementById('noakhali-donate');
-noakhaloDonateBtn.addEventListener('click', function () {
+function handleDonation(inputFieldId, displayAmountId, errorId, locationName) {
+    const inputField = document.getElementById(inputFieldId);
+    const donationAmount = parseFloat(inputField.value);
+    const mainBalanceElement = document.getElementById('main-balance');
+    const mainBalance = parseFloat(mainBalanceElement.innerText);
+    const currentDonationDisplay = document.getElementById(displayAmountId);
+    const currentDonatedValue = parseFloat(currentDonationDisplay.innerText);
+    const invalidInputLabel = document.getElementById(errorId);
 
-    const noakhaliInputField = parseFloat(document.getElementById('noakhali-input').value);
-    const currentBalance = parseFloat(document.getElementById('main-balance').innerText);
-    const noakhaliDonateAmmount = parseFloat(document.getElementById('noakhali-ammount').innerText);
-    const mainBalance = parseFloat(document.getElementById('main-balance').innerText);
+    // 1. Validation
+    if (isNaN(donationAmount) || donationAmount <= 0) {
+        invalidInputLabel.classList.remove('hidden');
+        return;
+    }
 
-    if (noakhaliInputField > mainBalance) {
+    if (donationAmount > mainBalance) {
         alert('Insufficient Balance');
-        return
-    }
-    else if (noakhaliInputField <= 0 || isNaN(noakhaliInputField)) {
-        const invalidInput = document.getElementById('noakhali-invalid-input');
-        invalidInput.classList.remove('hidden');
-        // alert('Please enter a valid donation amount');
-        return
-    }
-    else {
-        // proceed with donation
-        const invalidInput = document.getElementById('noakhali-invalid-input');
-        invalidInput.classList.add('hidden');
-        const newNoakhaliAmmount = noakhaliDonateAmmount + noakhaliInputField;
-        document.getElementById('noakhali-ammount').innerText = newNoakhaliAmmount.toFixed(2);
-        my_modal_1.showModal();
-
-
+        return;
     }
 
-    const remainingBalance = currentBalance - noakhaliInputField;
-    document.getElementById('main-balance').innerText = remainingBalance.toFixed(2);
+    // 2. Logic & UI Updates
+    invalidInputLabel.classList.add('hidden');
 
-    document.getElementById('noakhali-input').value = '';
+    // Update Section Total
+    const newDonatedTotal = currentDonatedValue + donationAmount;
+    currentDonationDisplay.innerText = newDonatedTotal.toFixed(2);
 
-});
+    // Update Main Balance
+    const remainingBalance = mainBalance - donationAmount;
+    mainBalanceElement.innerText = remainingBalance.toFixed(2);
+
+    // 3. Modal & Clear Input
+    my_modal_1.showModal(); // Show success modal
+    inputField.value = '';  // Clear input
+    // Add to history
+    addHistoryItem(locationName, donationAmount);
+}
 
 
 // Feni Donation Section
-
-const feniDonateBtn = document.getElementById('feni-donate');
-feniDonateBtn.addEventListener('click', function () {
-
-    const feniInputField = parseFloat(document.getElementById('feni-input').value);
-    const currentBalance = parseFloat(document.getElementById('main-balance').innerText);
-    const feniDonateAmmount = parseFloat(document.getElementById('feni-ammount').innerText);
-    const mainBalance = parseFloat(document.getElementById('main-balance').innerText);
-
-    if (feniInputField > mainBalance) {
-        alert('Insufficient Balance');
-        return
-    }
-    else if (feniInputField <= 0 || isNaN(feniInputField)) {
-        const invalidInput = document.getElementById('feni-invalid-input');
-        invalidInput.classList.remove('hidden');
-        // alert('Please enter a valid donation amount');
-        return
-    }
-    else {
-        // proceed with donation
-        const invalidInput = document.getElementById('feni-invalid-input');
-        invalidInput.classList.add('hidden');
-        const newFeniAmmount = feniDonateAmmount + feniInputField;
-        document.getElementById('feni-ammount').innerText = newFeniAmmount.toFixed(2);
-        my_modal_1.showModal();
-
-
-    }
-
-    const remainingBalance = currentBalance - feniInputField;
-    document.getElementById('main-balance').innerText = remainingBalance.toFixed(2);
-
-    document.getElementById('feni-input').value = '';
-
+document.getElementById('feni-donate').addEventListener('click', function () {
+    handleDonation('feni-input', 'feni-ammount', 'feni-invalid-input', 'Feni');
 });
 
-// quota Donation Section
+// Quota Donation Section
+document.getElementById('quota-donate').addEventListener('click', function () {
+    handleDonation('quota-input', 'quota-ammount', 'quota-invalid-input', 'Quota Protest');
+});
 
-const quotaDonateBtn = document.getElementById('quota-donate');
-quotaDonateBtn.addEventListener('click', function () {
-
-    const quotaInputField = parseFloat(document.getElementById('quota-input').value);
-    const currentBalance = parseFloat(document.getElementById('main-balance').innerText);
-    const quotaDonateAmmount = parseFloat(document.getElementById('quota-ammount').innerText);
-    const mainBalance = parseFloat(document.getElementById('main-balance').innerText);
-
-    if (quotaInputField > mainBalance) {
-        alert('Insufficient Balance');
-        return
-    }
-    else if (quotaInputField <= 0 || isNaN(quotaInputField)) {
-        const invalidInput = document.getElementById('quota-invalid-input');
-        invalidInput.classList.remove('hidden');
-        // alert('Please enter a valid donation amount');
-        return
-    }
-    else {
-        // proceed with donation
-        const invalidInput = document.getElementById('quota-invalid-input');
-        invalidInput.classList.add('hidden');
-        const newQuotaAmmount = quotaDonateAmmount + quotaInputField;
-        document.getElementById('quota-ammount').innerText = newQuotaAmmount.toFixed(2);
-        my_modal_1.showModal();
-
-
-    }
-
-    const remainingBalance = currentBalance - quotaInputField;
-    document.getElementById('main-balance').innerText = remainingBalance.toFixed(2);
-
-    document.getElementById('quota-input').value = '';
-
+// Example: Adding Noakhali is now this simple
+document.getElementById('noakhali-donate').addEventListener('click', function () {
+    handleDonation('noakhali-input', 'noakhali-ammount', 'noakhali-invalid-input', 'Noakhali');
 });
 
 
+
+// Function to add a history item
+function addHistoryItem(location, amount) {
+    const historyItemsDiv = document.getElementById('history-items-div');
+    const newHistoryItem = document.createElement('div');
+
+    // Set all classes at once
+    newHistoryItem.className = 'border p-4 mb-4 rounded bg-white shadow';
+
+    newHistoryItem.innerHTML = `
+        <h3 class="text-lg font-semibold mb-2">Donation to ${location}</h3>
+        <p class="text-gray-700">Amount: ৳${amount.toFixed(2)}</p>
+        <p class="text-sm text-gray-500">${new Date().toString()}</p>
+    `;
+
+    // Prepend puts the newest donation at the top
+    historyItemsDiv.prepend(newHistoryItem);
+}
+
+
+
+// Toggle Donation History and Donation Section
 const historyBtn = document.getElementById('history-btn');
 
 historyBtn.addEventListener('click', function () {
@@ -128,10 +91,15 @@ const donationBtn = document.getElementById('donation-btn');
 donationBtn.addEventListener('click', function () {
     document.getElementById('donation-section').classList.remove('hidden');
     document.getElementById('history-list').classList.add('hidden');
-     historyBtn.classList.remove('bg-lime-300');
+    historyBtn.classList.remove('bg-lime-300');
     donationBtn.classList.add('bg-lime-300');
-    
+
 });
+
+
+
+
+
 
 
 
